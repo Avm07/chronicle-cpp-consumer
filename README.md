@@ -15,7 +15,7 @@ EOSChronicle cpp consumer which filter and store data in MongoDb.
 #brew install mongo-c
 #brew install mongo-cxx-driver
 
-git clone git@git.list.family:list/chronicle-receiver-db-writer.git
+git clone https://github.com/Avm07/chronicle-cpp-consumer.git
 cd chronicle-cpp-consumer
 git submodule update --init --recursive
 mkdir build
