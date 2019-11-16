@@ -1,0 +1,41 @@
+# Use root/example as user/password credentials
+version: "3.1"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+
+  chronicle-db-writer:
+    build: .
+    ports:
+      - 8686:8686
+    depends_on:
+      - mongo
+    stop_grace_period: 30m
+    entrypoint: /app/entrypoint.sh
+
+  chronicle-receiver:
+    image: eu.gcr.io/list-limited/chronicle-receiver:latest
+    volumes:
+      - ./examples/chronicle:/build/eos-chronicle/config
+    entrypoint: /eos-chronicle/entrypoint.sh
+    depends_on:
+      - chronicle-db-writer
+    stop_grace_period: 30m

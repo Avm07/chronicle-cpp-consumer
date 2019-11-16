@@ -1,0 +1,15 @@
+enum
+{
+    FORK = 1001,
+    BLOCK = 1002,
+    TX_TRACE = 1003,
+    ABI_UPD = 1004,
+    ABI_REM = 1005,
+    ABI_ERR = 1006,
+    TBL_ROW = 1007,
+    ENCODER_ERR = 1008,
+    RCVR_PAUSE = 1009,
+    BLOCK_COMPLETED = 1010,
+    PERMISSION = 1011,
+    PERMISSION_LINK = 1012
+};

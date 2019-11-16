@@ -1,0 +1,14 @@
+{
+    "server": {
+        "port": 8686,
+        "ack_number": 100,
+        "bin_mode": true
+    },
+    "database": {
+        "address": "mongo",
+        "port": 27017,
+        "db_name" : "list_history",
+        "user_name": "user",
+        "user_pwd": "password"
+    }
+}
