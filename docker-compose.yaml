@@ -22,7 +22,7 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: user
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
 
-  chronicle-db-writer:
+  chronicle-cpp-consumer:
     build: .
     ports:
       - 8686:8686
