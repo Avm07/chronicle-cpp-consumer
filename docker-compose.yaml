@@ -32,10 +32,11 @@ services:
     entrypoint: /app/entrypoint.sh
 
   chronicle-receiver:
-    image: eu.gcr.io/list-limited/chronicle-receiver:latest
+    build: ./eos-chronicle
     volumes:
       - ./examples/chronicle:/build/eos-chronicle/config
-    entrypoint: /eos-chronicle/entrypoint.sh
+    command: ["/build/eos-chronicle/build/chronicle-receiver", "--config-dir", "/build/eos-chronicle/config", "--data-dir", "/build/eos-chronicle/data"]
+    #entrypoint: ./eos-chronicle/entrypoint.sh
     depends_on:
-      - chronicle-db-writer
+      - chronicle-cpp-consumer
     stop_grace_period: 30m

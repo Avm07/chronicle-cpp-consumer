@@ -7,7 +7,7 @@
     "database": {
         "address": "mongo",
         "port": 27017,
-        "db_name" : "list_history",
+        "db_name" : "eosio_token",
         "user_name": "user",
         "user_pwd": "password"
     }
