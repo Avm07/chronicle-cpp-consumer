@@ -1,6 +1,6 @@
 # chronicle-cpp-consumer
 
-EOSChronicle cpp consumer which filter and store data in MongoDb.
+EOSChronicle cpp consumer which filter and store data for eosio.token smart contract in MongoDB.
 
 # Dependencies
 
@@ -53,6 +53,12 @@ Config example:
 ```
 
 Run example:
+
+```
+./chronicle-consumer ../examples config.json 
+```
+
+Docker-compose:
 
 ```
 ./chronicle-consumer ../examples config.json 
