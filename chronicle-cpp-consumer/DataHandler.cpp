@@ -49,14 +49,12 @@ void DataHandler::process_bin_data(bool& answer_flag, const std::string& data)
 
         if (msg_type == FORK)
         {
-            std::cout << "Message type: " << msg_type << std::endl;
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(info) << "\nMessage type: " << msg_type << std::endl  << std::setw(4) << j_out << std::endl << std::endl;
             m_last_block = std::stoi(j_out["block_num"].get<std::string>());
         }
         else if (msg_type == TBL_ROW)
         {
-            std::cout << "Message type: " << msg_type << std::endl;
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(info) << "\nMessage type: " << msg_type << std::endl  << std::setw(4) << j_out << std::endl << std::endl;
             ft result = m_upfilter->filter_tbl_personality(j_out);
             auto status = j_out["added"].get<std::string>();
 
@@ -73,8 +71,7 @@ void DataHandler::process_bin_data(bool& answer_flag, const std::string& data)
         }
         else if (msg_type == TX_TRACE)
         {
-            std::cout << "Message type: " << msg_type << std::endl;
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(info) << "\nMessage type: " << msg_type << std::endl << std::setw(4) << j_out << std::endl << std::endl;
             fpv result = m_upfilter->filter_tx_personality(j_out);
             if (!result.first.empty())
             {
@@ -121,17 +118,12 @@ void DataHandler::process_json_data(bool& answer_flag, const std::string& data)
 
         if (msgtype == "FORK")
         {
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
-            /*
-            uint64_t block_num = std::stoi(j_out["data"]["block_num"].get<std::string>());
-            m_last_ack = block_num - 1; 
-            answer_flag = true;
-            */
+            BOOST_LOG_TRIVIAL(info) << std::setw(4) << j_out << std::endl << std::endl;
             m_last_block = std::stoi(j_out["data"]["block_num"].get<std::string>());
         }
         else if (msgtype == "TBL_ROW")
         {
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(info) << std::setw(4) << j_out << std::endl << std::endl;
             auto status = j_out["data"]["added"].get<std::string>();
             
             json j_tbl_data  = json::parse(j_out["data"].dump());
@@ -150,7 +142,7 @@ void DataHandler::process_json_data(bool& answer_flag, const std::string& data)
         }
         else if (msgtype == "TX_TRACE")
         {
-            std::cout << std::setw(4) << j_out << std::endl << std::endl;
+            BOOST_LOG_TRIVIAL(info) << std::setw(4) << j_out << std::endl << std::endl;
             json j_tx_traces  = json::parse(j_out["data"].dump());
             fpv result = m_upfilter->filter_tx_personality(j_tx_traces);
             if (!result.first.empty())
@@ -160,13 +152,6 @@ void DataHandler::process_json_data(bool& answer_flag, const std::string& data)
         }
         else if (msgtype == "RCVR_PAUSE")
         {
-            /* 
-            if(m_last_block > m_last_ack)
-            {
-                m_last_ack = m_last_block;
-                answer_flag = true;
-            }
-            */
             m_last_ack = m_last_block;
             answer_flag = true;
         }

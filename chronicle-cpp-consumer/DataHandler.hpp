@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <boost/log/trivial.hpp>
 #include "Config.hpp"
 #include "EosTokenFilter.hpp"
 #include "MongoDbWrapper.hpp"

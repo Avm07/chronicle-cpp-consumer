@@ -19,8 +19,6 @@ void TCPSyncServer::do_accept()
         // Block until we get a connection
         m_acceptor.accept(socket);
 
-        // Launch the session, transferring ownership of the socket
-        //std::thread{std::bind(&TCPSyncServer::do_session, socket)}.detach();
         do_session(socket);    
     }
 }
@@ -40,7 +38,6 @@ void TCPSyncServer::do_session(tcp::socket& sock)
             bool answer_flag = false;
             beast::flat_buffer buffer;
 
-            // Read a message
             ws.read(buffer);
 
             m_updata->process_data(answer_flag,beast::buffers_to_string(buffer.data()));
