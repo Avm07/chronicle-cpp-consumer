@@ -8,14 +8,16 @@ EOSChronicle cpp consumer which filter and store data in MongoDb.
 * mongo-c-driver	
 * mongo-cxx-driver
 
+**Mac OSX**
+```
+brew install boost
+brew install mongo-c
+brew install mongo-cxx-driver
+```
+
 # Compiling
 
 ```
-#Mac OSX
-#brew install boost
-#brew install mongo-c
-#brew install mongo-cxx-driver
-
 git clone https://github.com/Avm07/chronicle-cpp-consumer.git
 cd chronicle-cpp-consumer
 git submodule update --init --recursive
