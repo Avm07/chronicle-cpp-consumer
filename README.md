@@ -61,5 +61,5 @@ Run example:
 Docker-compose:
 
 ```
-./chronicle-consumer ../examples config.json 
+docker-compose up --build
 ```
