@@ -36,7 +36,6 @@ services:
     volumes:
       - ./examples/chronicle:/build/eos-chronicle/config
     command: ["/build/eos-chronicle/build/chronicle-receiver", "--config-dir", "/build/eos-chronicle/config", "--data-dir", "/build/eos-chronicle/data"]
-    #entrypoint: ./eos-chronicle/entrypoint.sh
     depends_on:
       - chronicle-cpp-consumer
     stop_grace_period: 30m

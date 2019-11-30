@@ -8,7 +8,7 @@ EOSChronicle cpp consumer which filter and store data in MongoDb.
 * mongo-c-driver	
 * mongo-cxx-driver
 
-**Mac OSX**
+**Mac OS X**
 ```
 brew install boost
 brew install mongo-c
