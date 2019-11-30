@@ -1,6 +1,7 @@
 # chronicle-cpp-consumer
 
 EOSChronicle cpp consumer which filter and store data for eosio.token smart contract in MongoDB.
+Everything included in docker-compose.yaml(EOSChronicle + cpp-consumer + mongo + mongoexpress).
 
 # Dependencies
 
@@ -63,3 +64,4 @@ Docker-compose:
 ```
 docker-compose up --build
 ```
+
