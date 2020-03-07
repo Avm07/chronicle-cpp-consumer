@@ -1,6 +1,6 @@
-FROM ubuntu:18.10
+FROM debian:buster
 RUN apt update
-RUN apt install -y git g++ cmake libboost-dev libboost-thread-dev libboost-test-dev libboost-filesystem-dev libboost-date-time-dev libboost-system-dev libboost-iostreams-dev libboost-program-options-dev libboost-locale-dev libssl-dev libgmp-dev
+RUN apt install -y git g++ cmake libboost-dev libboost-thread-dev libboost-test-dev libboost-filesystem-dev libboost-date-time-dev libboost-system-dev libboost-iostreams-dev libboost-program-options-dev libboost-locale-dev libssl-dev libgmp-dev pkg-config libzmq5-dev zlib1g-dev
 RUN mkdir build
 WORKDIR /build
 RUN git clone https://github.com/EOSChronicleProject/eos-chronicle.git
